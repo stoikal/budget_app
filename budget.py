@@ -77,8 +77,8 @@ def create_histogram(category_list):
 
 def create_spend_chart(category_list):
     histogram = create_histogram(category_list)
-    y_axis = (100, 90, 80, 70, 60, 50, 40, 10, 0, -10)
-    graph = ''
+    y_axis = (100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0, -10)
+    graph = 'Percentage spent by category\n'
 
 
     for step in y_axis:
@@ -92,10 +92,12 @@ def create_spend_chart(category_list):
                     graph += ' o '
                 else:
                     graph += '   '
+            graph += ' '
         else:
             graph += '    '
             for category in category_list:
                 graph += '---'
+            graph += '-'
         graph += '\n'
 
     index = 0
@@ -122,7 +124,7 @@ def create_spend_chart(category_list):
 
         
 
-        graph += '' if names_complete else '\n'
+        graph += ' ' if names_complete else ' \n'
         index += 1
 
 
