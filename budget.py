@@ -99,23 +99,30 @@ def create_spend_chart(category_list):
         graph += '\n'
 
     index = 0
+    names_complete = False
+    
     while True:
+        if names_complete: 
+            break
+
         names_complete = True
         graph += '    '
         for category in category_list:
             name = category.category
-            
-            if index >= len(name):
+            if index <= len(name) - 1:
+                graph += ' ' + name[index] + ' '
+
+                if index == len(name) - 1:
+                    names_complete = names_complete and True
+                else:
+                    names_complete = False
+            else:
                 graph += '   '
                 names_complete = names_complete and True
-            else:
-                graph += ' ' + name[index] + ' '
-                names_complete = False
 
-        if names_complete: 
-            break
+        
 
-        graph += '\n'
+        graph += '' if names_complete else '\n'
         index += 1
 
 
